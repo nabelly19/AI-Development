@@ -13,44 +13,35 @@ double MyNewDer(double x) { return (1 / (2 * Math.Sqrt(Math.Abs(x))) - 5) * x + 
 
 double Function(double x ) { return Math.Pow(x - 1, 2) + Math.Sin(Math.Pow(x,3));}
 
-double sol;
+// double GradientFunction(double[] x) { return Math.Pow(x[0],2) + Math.Pow(x[1],2); }
+
+double GradientFunction(double[] x) { return Math.Pow(x[0] + 2.00 * x[1],2) + Math.Pow( 2.00 * x[0] + x[1] - 5, 2); }
+
+double RosenBrockFunction(double[] x) {
+
+    double hellyeah = 0;
+    var n = x.Length;
+    int ni = n - 1;
+    for( int i = 0; i < ni; i ++)
+    {
+        hellyeah += 100 * (x[i+1] - x[0] * x[0] ) * (x[i+1] - x[0] * x[0] ) + (1 - x[i]) * (1 - x[i]);
+    }
+    return hellyeah;
+}
+
+double[] sol;
 
 var date = DateTime.Now;
 date = DateTime.Now;
-// sol = Root.Bisection(MySqrt, -10.0, 10.0);
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
 
-// date = DateTime.Now;
-// sol = Root.FalsePosition(MySqrt, -10.0, 10.0);
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
-
-// date = DateTime.Now;
-// sol = Root.Newton(MyFunction, MyDer, 10.0);
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
-
-// date = DateTime.Now;
-// sol = Root.Newton(MySqrt, MyNewDer, 10.0);
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
-
-// date = DateTime.Now;
-// sol = Root.Newton(MySqrt, double (double x) => Diff.Differentiate(MySqrt, x), 10.0 );
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
+var num = new double[] {10,10};
+double lr;
+double atol;
 
 date = DateTime.Now;
-sol = Optmize.Newton(MySqrt, 10.00);
-Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
+sol = Optmize.GradientDescent(RosenBrockFunction, num, lr = 1e-5, atol = 1e-9);
+Console.WriteLine($"Solution: {sol[0]} {sol[1]} | Time: {(DateTime.Now - date).TotalMilliseconds}");
 
-// date = DateTime.Now;
-// sol = Optmize.Newton(Function, 1.00);
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
-
-date = DateTime.Now;
-sol = Optmize.GradientDescent(MySqrt, 10.00);
-Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
-
-// date = DateTime.Now;
-// sol = Optmize.Newton(Function, 1.00);
-// Console.WriteLine($"Solution: {sol} | Time: {(DateTime.Now - date).TotalMilliseconds}");
 
 
 

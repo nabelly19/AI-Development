@@ -12,7 +12,6 @@ public static class Optmize
         return Root.Newton(diffFunction, diffSecondFunction, x0, atol, maxIter);
     }
 
-
     public static double GradientDescent(
         Func<double, double> function,
         double x0,
@@ -28,6 +27,33 @@ public static class Optmize
             diff = Diff.Differentiate(function, xp);
             xp -= lr * diff;
         }
+
+        return xp;
+    }
+
+    public static double[] GradientDescent(
+        Func<double[], double> function,
+        double[] x0,
+        double lr = 1e-2,
+        double atol = 1e-4
+    )
+    {
+        var dim = x0.Length;
+        var xp = (double[])x0.Clone();
+        var diff = Diff.Gradient(function, xp);
+        double diffNorm = double.MaxValue;
+
+        do
+        {
+            diffNorm = 0.0;
+            diff =  Diff.Gradient(function, xp);
+
+            for (int i = 0; i < dim; i++)
+            {
+                xp[i] -= lr * diff[i];
+                diffNorm += Math.Abs(diff[i]);
+            }
+        }  while (diffNorm > dim * atol);
 
         return xp;
     }

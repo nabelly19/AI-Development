@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\Aula1IA\\Aula1IA.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\k\\AI-Development\\AI\\Aula1IA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\Aula1IA\\Aula1IA.csproj": {
+    "C:\\Users\\disrct\\Desktop\\k\\AI-Development\\AI\\Aula1IA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Aula1IA\\Aula1IA.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\k\\AI-Development\\AI\\Aula1IA.csproj",
         "projectName": "Aula1IA",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\Aula1IA\\Aula1IA.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\k\\AI-Development\\AI\\Aula1IA.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\Aula1IA\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\k\\AI-Development\\AI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"
